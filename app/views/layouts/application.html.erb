@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mboard</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+	<link href='http://fonts.googleapis.com/css?family=Arbutus+Slab' rel='stylesheet' type='text/css'>
+</head>
+<body>
+	
+<div id="header">
+	<div id="headerContent" class="clearfix">
+  <%= link_to "", root_url, id: 'logo' %>
+	<% if current_user %>
+	<p>Logged in as <strong><%= current_user.username %></strong><em> | </em>
+	<%= link_to "Log Out", logout_path %>
+  </p>
+  <% else %>
+  <p>
+	<%= link_to "Log In", login_path %> <em> | </em>
+  <%= link_to "Sign Up?", signup_path %>
+  </p>
+  <% end %>
+   </div>
+</div>
+	
+<div id="mainContainer">
+	<div id="mainContent">
+	<% flash.each do |k,v| =%>
+	  <div class="<%= k %>">
+	    <p><%= v %></p>
+	  </div>
+	<% end %>
+  <%= yield %>
+  </div>
+</div>
+
+</body>
+</html>

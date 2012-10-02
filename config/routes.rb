@@ -6,6 +6,7 @@ Mboard::Application.routes.draw do
   get 'logout', to: 'session#destroy', as: 'logout'
   resources :users
   resources :session
+  resources :topics
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

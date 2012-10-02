@@ -5,5 +5,6 @@ class HomeController < ApplicationController
   def index
     @user = User.find_by_id(session[:user_id])
     @gravatar = Digest::MD5.hexdigest(@user.email)
+    @topics = Topic.find(:all)
   end
 end

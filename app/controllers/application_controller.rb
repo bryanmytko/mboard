@@ -1,3 +1,4 @@
+require 'digest/md5'
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
@@ -11,4 +12,10 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to login_url if current_user.nil?
   end
+  
+  def gravatar_request
+    @user = User.find_by_id(session[:user_id])
+    @gravatar = Digest::MD5.hexdigest(@user.email)
+  end
+  helper_method :gravatar_request
 end

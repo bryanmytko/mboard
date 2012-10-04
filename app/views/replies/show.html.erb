@@ -10,7 +10,7 @@
 		<% @replies.each do |r| %>
 		<div class="reply clearfix">
 			<div class="authorContainer">
-		    <img src="http://www.gravatar.com/avatar/<%= @gravatar %>?s=80&d=mm" class="homepage_gravatar" />
+		    <img src="http://www.gravatar.com/avatar/<%= gravatar_request %>?s=80&d=mm" class="homepage_gravatar" />
 		    <!--<img src="/me.png" alt="" width="80" />-->
 				<%= link_to r.author, user_path(r.author) %>
 		  </div>

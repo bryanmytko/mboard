@@ -1,0 +1,37 @@
+<div class="clearfix" id="welcomeContent">
+  <div id="welcomeMessage">
+    <h1><%= @topic.title %></h1>	
+  </div>
+</div>
+<div id="reply">
+	
+  <% unless @replies.empty? %>
+		<div id="replyContainer">
+		<% @replies.each do |r| %>
+		<div class="reply clearfix">
+			<div class="authorContainer">
+		   <!-- <img src="http://www.gravatar.com/avatar/<%= @gravatar %>?s=80&d=mm" class="homepage_gravatar" />-->
+		    <img src="/me.png" alt="" width="80" />
+				<%= link_to r.author, user_path(r.author) %>
+		  </div>
+		  <div class="commentContainer">
+		    <p><%= r.comment %></p>
+		  </div>
+		</div>
+		<% end %>
+		</div>
+	<% end %>
+
+	<div id="signup">
+	<%= form_for  @reply, :url => { :action => 'create', :id => @topic.id } do |f| %>
+	<div class="input_container clearfix">
+	<%= f.label :comment, "Comment: " %>
+	<%= f.text_area :comment, :rows => 3, :cols => 32%>
+	</div>
+	<div class="input_container clearfix">
+	<%= f.submit "Comment!" %>
+	</div>
+	<% end %>
+	</div>
+	
+</div>

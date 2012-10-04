@@ -8,16 +8,23 @@
   </div>
 </div>
 
-<p class="homepage_content">This is the main dashboard. You should only be seeing this page if you are logged in.<strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est.</p>
+<p class="homepage_content">Welcome to BME. If you don't have an avatar image, head over to <%= link_to 'gravatar.com', 'http://www.gravatar.com' %> and signup. I'm still building this thing from scratch, on my own, so if there's a problem either <%= link_to 'email me', 'mailto:bryanmytko@gmail.com' %> or shut up. Known issues & missing features include: no link parsing, no image uploading, no topic creation, no post editing, incomplete user pages, as well as a bunch of other things. Chicken chicken, chicken chicken. Chicken. Chicken chicken Chicken chicken, chicken chicken. Chicken. Chicken chicken.
+	<br /><br />The only rules are: No child porn, bestiality, or spam. Anything deemed inappropriate will be removed and you may be banned.</p>
 
 <div id="topics">
 	<table cellpadding="0" cellmargin="0">
 		<tr>
 			<th class="title">
-				Title
+				Topic
 			</th>
 			<th>
-				Posts
+				Replies
+			</th>
+			<th>
+				Last Reply By?
+			</th>
+			<th>
+				Views
 			</th>
 			<th>
 				Last Post
@@ -26,16 +33,26 @@
 	<% @topics.each do |t| %>
 	<tr>
 		<td class="title">
-	    <%= link_to t.title.capitalize, '#' %>
+	    <%= link_to t.title.capitalize, topic_path(t.slug) %>
 	  </td>
 	  <td>
-		  <%= rand(3..17) %>
+		  <p><%= rand(3..17) %></p>
+		</td>
+		<td>
+			<p><%= unless (t.last_author).nil?
+				  link_to t.last_author, user_path(t.last_author)
+				else
+				  '-'
+				end
+			%></p>
+		</td>
+		<td>
+			<p><%= t.view_count.to_s %></p>
 		</td>
 	  <td>
-		  <%= t.updated_at.to_formatted_s(:long_ordinal) %>
+		  <p><%= t.updated_at.to_formatted_s(:long_ordinal) %></p>
 	  </td>
 	</tr>
 	<% end %>
   </table>
 </div>
-

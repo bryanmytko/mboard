@@ -232,7 +232,7 @@ a:hover { text-decoration: underline; color: #4183C4 }
 #headerContent a { color: #222; text-decoration: none; font-weight: bold; font-size: 1em }
 #headerContent a:hover { text-decoration: underline; color: #4183C4 }
 #headerContent em { color: #C9C9C9; font-style: normal }
-#header #logo { height: 23px; width: 200px; display: block; cursor: pointer; background: url(<%= asset_path "logo.png" %>) 0 0 no-repeat; float: left; margin-top: 4px }
+#header #logo { height: 26px; width: 220px; display: block; cursor: pointer; background: url(<%= asset_path "logo.png" %>) 0 0 no-repeat; float: left; margin-top: 4px }
 
 #welcomeContent { margin: 20px 0 30px 0 }
 #mainContent h2 { margin: 0 }
@@ -243,10 +243,11 @@ a:hover { text-decoration: underline; color: #4183C4 }
 p.homepage_content { font-size: .9em }
 
 #topics tr, #topics table { width: 100%; margin-top: 30px }
-#topics th.title, td.title { width: 60% }
+#topics th.title, td.title { width: 40% }
 #topics th, td { text-align: left; padding: 10px 14px; font-size: 1.0em }
-#topics th { background: url(<%= asset_path "headerBg.png" %>) 0 bottom repeat-x; color: #3a3a3a }
+#topics th { background: url(<%= asset_path "headerBg.png" %>) 0 -7px repeat-x; color: #3a3a3a }
 #topics td { background: #f5f5f5; border-bottom: 1px solid #d5d5d5 }
+#topics table { font-size: .9em }
 
 .homepage_gravatar { float: left; margin: 0 12px 8px 0 }
 
@@ -266,6 +267,16 @@ p.homepage_content { font-size: .9em }
 #signup form input[type=submit] { height: 30px; width: 100px; cursor: pointer; color: #666 }
 #signup form input[type=submit]:hover { background: #b9b9b9 }
 
+#replyContainer { border-top: 1px solid #d5d5d5 }
+.reply { background: #f5f5f5; border-bottom: 1px solid #d5d5d5; padding: 20px }
+.reply .author { color: #4183C4 }
+.authorContainer, .commentContainer { float: left }
+.authorContainer { width: 10% }
+.authorContainer a { display: block; font-size: .8em }
+.authorContainer img { border: 1px solid #d5d5d5 }
+.commentContainer { padding: 0 0 0 20px; width: 86%; font-size: .8em }
+#reply #signup { float: right; margin-top: 0 !important; padding-top: 6px; border-top: 0; border-left: 0; border-right: 0; background: whitesmoke; padding-bottom: 6px }
+#reply #signup textarea { font-size: .7em; padding: 6px; margin: 4px 0 0 12px; width: 306px }
 
 
 

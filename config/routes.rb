@@ -1,12 +1,18 @@
 Mboard::Application.routes.draw do
-  #get "home/index"
+ 
   root :to => "home#index"
+  
+  match 'topic/:slug' => 'replies#show', :as => :topic
+  match 'user/:author' => 'users#show', :as => :user
+  
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'session#new', as: 'login'
   get 'logout', to: 'session#destroy', as: 'logout'
+  
   resources :users
   resources :session
   resources :topics
+  resources :replies
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

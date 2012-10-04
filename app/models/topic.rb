@@ -1,3 +1,4 @@
 class Topic < ActiveRecord::Base
-  attr_accessible :title
+  has_many :reply
+  attr_accessible :title, :view_count, :slug
 end

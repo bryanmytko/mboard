@@ -11,7 +11,7 @@
 <p class="homepage_content">Welcome to BME. If you don't have an avatar image, head over to <%= link_to 'gravatar.com', 'http://www.gravatar.com' %> and signup. I'm still building this thing from scratch, on my own, so if there's a problem either <%= link_to 'email me', 'mailto:bryanmytko@gmail.com' %> or shut up. Known issues & missing features include: no link parsing, no image uploading, no topic creation, no post editing, incomplete user pages, as well as a bunch of other things. Chicken chicken, chicken chicken. Chicken. Chicken chicken Chicken chicken, chicken chicken. Chicken. Chicken chicken.
 	<br /><br />The only rules are: No child porn, bestiality, or spam. Anything deemed inappropriate will be removed and you may be banned.</p>
 
-<div id="topics">
+<div id="topics" class="clearfix">
 	<table cellpadding="0" cellmargin="0">
 		<tr>
 			<th class="title">
@@ -36,7 +36,7 @@
 	    <%= link_to t.title.capitalize, topic_path(t.slug) %>
 	  </td>
 	  <td>
-		  <p>7</p>
+		  <p><%= reply_count(t.id) %></p>
 		</td>
 		<td>
 			<p><%= unless (t.last_author).nil?
@@ -54,5 +54,16 @@
 	  </td>
 	</tr>
 	<% end %>
-  </table>
+  
+  <tr id="newTopic">
+	  <td colspan="6">
+	    <%= form_for @topic do |t| %>
+	    <%= t.label :title, "New Topic: " %>
+	    <%= t.text_field :title %>
+	    <%= t.submit "Create!" %>
+	    <% end %>
+	  </td>
+  </tr>
+
+	</table>
 </div>

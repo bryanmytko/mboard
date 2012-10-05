@@ -28,9 +28,11 @@
 <div id="mainContainer">
 	<div id="mainContent">
 	<% flash.each do |k,v| =%>
+	<div id="flashContainer">
 	  <div class="<%= k %>">
 	    <p><%= v %></p>
 	  </div>
+	</div>
 	<% end %>
   <%= yield %>
   </div>

@@ -15,4 +15,6 @@
 //= require_tree .
 $(document).ready(function(){
  $('div.notice').delay(1500).fadeOut('slow');
+ $('div.error').delay(1500).fadeOut('slow');
+
 });

@@ -247,7 +247,7 @@ p.homepage_content { font-size: .9em }
 #topics th, td { text-align: left; padding: 10px 14px; font-size: 1.0em }
 #topics th { background: url(<%= asset_path "headerBg.png" %>) 0 -7px repeat-x; color: #3a3a3a }
 #topics td { background: #f5f5f5; border-bottom: 1px solid #d5d5d5 }
-#topics table { font-size: .9em }
+#topics table { font-size: .9em; margin-bottom: 80px }
 
 .homepage_gravatar { float: left; margin: 0 12px 8px 0 }
 
@@ -258,6 +258,9 @@ p.homepage_content { font-size: .9em }
 .notice p { color: #fff; padding: 6px }
 .alert { background: #f00; color: #fff; padding: 0 }
 .alert p { color: #fff; padding: 6px }
+.error { background: #f00; color: #fff; padding: 0 }
+.error p { color: #fff; padding: 6px }
+#flashContainer { height: 20px; width: 100% }
 
 #signup { width: 400px; margin: 50px auto; background: url(<%= asset_path "formBg.png" %>) 0 0 repeat-x #e6e3e3; border: 1px solid #dadada; padding: 20px }
 #signup .input_container { margin: 12px 0 }
@@ -278,7 +281,11 @@ p.homepage_content { font-size: .9em }
 #reply #signup { float: right; margin-top: 0 !important; padding-top: 6px; border-top: 0; border-left: 0; border-right: 0; background: whitesmoke; padding-bottom: 6px }
 #reply #signup textarea { font-size: .7em; padding: 6px; margin: 4px 0 0 12px; width: 306px }
 
-
+#newTopic form { float: right; margin-right: 50px }
+#newTopic form label { float: left; font-size: 1em; padding: 4px 0 }
+#newTopic form input { height: 20px; width: 250px; padding: 3px; border: 1px solid #b9b9b9; float: left; font-size: 1em; color: #666; margin-left: 12px }
+#newTopic form input[type=submit] { height: 30px; width: 100px; cursor: pointer; color: #666 }
+#newTopic form input[type=submit]:hover { background: #b9b9b9 }
 
 
 

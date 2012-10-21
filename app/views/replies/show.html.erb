@@ -11,9 +11,10 @@
 		<div class="reply clearfix">
 			<div class="authorContainer">
 		    <img src="http://www.gravatar.com/avatar/<%= gravatar_user(r.author) %>?s=80&d=mm" class="homepage_gravatar" />
-				<%= link_to r.author, user_path(r.author) %>
+				<%= link_to r.author, user_path( r.author ) %>
 		  </div>
 		  <div class="commentContainer">
+			  <%=	link_to image_tag(r.image_url(:thumb)), r.image_url, :target => 'new' if r.image? %>
 		    <p><%= raw h(hyperlink_parser(r.comment)) %></p>
 		  </div>
 		</div>
@@ -22,8 +23,11 @@
 	<% end %>
 
 	<div id="signup">
-	<%= form_for  @reply, :url => { :action => 'create', :id => @topic.id } do |f| %>
+	<%= form_for  @reply, :html => { :multipart => true }, :url => { :action => 'create', :id => @topic.id } do |f| %>
 	<div class="input_container clearfix">
+	<%= f.label :image, "Add Image: " %>
+	<%= f.file_field :image %>
+	<br class="clearfix" />
 	<%= f.label :comment, "Comment: " %>
 	<%= f.text_area :comment, :rows => 3, :cols => 32%>
 	</div>

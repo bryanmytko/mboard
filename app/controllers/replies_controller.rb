@@ -2,10 +2,13 @@
 class RepliesController < ApplicationController
   def create
     params[:reply][:author] = current_user.username
+
     @topic = Topic.find(params[:id])
+       
     @reply = @topic.reply.build(params[:reply])
     @topic.last_author = current_user.username
     @topic.save
+
     if @reply.save
       flash[:notice] = 'Comment posted!'
       redirect_to(topic_path(@topic.slug))

@@ -21,9 +21,8 @@
 		<% end %>
 		</div>
 	<% end %>
-
 	<div id="signup">
-	<%= form_for  @reply, :html => { :multipart => true }, :url => { :action => 'create', :id => @topic.id } do |f| %>
+	<%= form_for @reply, :html => { :multipart => true }, :url => { :action => 'create', :id => @topic.id } do |f| %>
 	<div class="input_container clearfix">
 	<%= f.label :image, "Add Image: " %>
 	<%= f.file_field :image %>

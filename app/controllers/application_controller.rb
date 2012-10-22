@@ -15,13 +15,13 @@ class ApplicationController < ActionController::Base
   
   def gravatar_self
     user = User.find_by_id( session[:user_id] )
-    gravatar = Digest::MD5.hexdigest( user.email )
+    gravatar = Digest::MD5.hexdigest( user.email.downcase )
   end
   helper_method :gravatar_self
   
   def gravatar_user( author )
     user = User.find_by_username( author )
-    gravatar = Digest::MD5.hexdigest( user.email )
+    gravatar = Digest::MD5.hexdigest( user.email.downcase )
   end
   helper_method :gravatar_user
 end

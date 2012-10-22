@@ -1,4 +1,4 @@
-abort('asdf')
+
 CarrierWave.configure do |config|
   config.fog_credentials = {
     :provider               => 'AWS',

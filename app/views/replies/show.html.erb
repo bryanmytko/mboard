@@ -14,7 +14,7 @@
 			<% end %>
 			<div class="authorContainer">
 		    <img src="http://www.gravatar.com/avatar/<%= gravatar_user(r.author) %>?s=80&d=mm" class="reply_gravatar" />
-				<% if is_admin %>
+				<% if is_user_admin( r.author ) %>
 				<%= link_to r.author, user_path( r.author ), :class => 'admin' %>
 				<% else %>
 				<%= link_to r.author, user_path( r.author ) %>

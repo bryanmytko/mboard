@@ -19,6 +19,12 @@ class ApplicationController < ActionController::Base
   end
   helper_method :is_admin
   
+  def is_user_admin( author )
+    admin_status = User.find_by_username( author )
+    admin_status.is_admin
+  end
+  helper_method :is_user_admin
+  
   def gravatar_self
     user = User.find_by_id( session[:user_id] )
     gravatar = Digest::MD5.hexdigest( user.email.downcase )

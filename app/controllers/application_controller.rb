@@ -13,6 +13,12 @@ class ApplicationController < ActionController::Base
     redirect_to login_url if current_user.nil?
   end
   
+  def is_admin
+    admin_status = User.find_by_id( session[:user_id] )
+    admin_status.is_admin
+  end
+  helper_method :is_admin
+  
   def gravatar_self
     user = User.find_by_id( session[:user_id] )
     gravatar = Digest::MD5.hexdigest( user.email.downcase )

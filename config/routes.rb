@@ -3,6 +3,7 @@ Mboard::Application.routes.draw do
   root :to => "home#index"
   
   match 'topic/:slug' => 'replies#show', :as => :topic
+  match 'remove_topic/:id' => 'topics#destroy', :as => :remove_topic
   match 'user/:author' => 'users#show', :as => :user
   
   get 'signup', to: 'users#new', as: 'signup'

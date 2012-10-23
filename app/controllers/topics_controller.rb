@@ -12,4 +12,15 @@ class TopicsController < ApplicationController
     end
     redirect_to(root_url)
   end
+  
+  def destroy
+    @topic = Topic.find_by_id( params[:id] )
+    if @topic.destroy
+      flash[:notice] = 'Thread deleted!'
+       redirect_to( root_url )
+    else
+      flash[:notice] = 'Could not delete thread...'
+       redirect_to( root_url )
+    end
+  end
 end

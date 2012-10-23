@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121021203041) do
+ActiveRecord::Schema.define(:version => 20121023000636) do
 
   create_table "replies", :force => true do |t|
     t.string   "author"
@@ -35,8 +35,9 @@ ActiveRecord::Schema.define(:version => 20121021203041) do
     t.string   "username"
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "is_admin",        :default => false
   end
 
 end

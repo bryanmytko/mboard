@@ -20,6 +20,7 @@
 		  <%= link_to image_tag(r.image_url(:thumb)), r.image_url, :target => 'new' if r.image? %>
 		<% end %>
 	    <p><%= raw h(hyperlink_parser(r.comment)) %></p>
+	    <p><%#= raw ae_some_html(r.comment) %></p>
 	  </div>
 	</div>
 	<% end %>

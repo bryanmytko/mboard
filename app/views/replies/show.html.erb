@@ -4,43 +4,6 @@
   </div>
 </div>
 <div id="reply">
-	
-  <% unless @replies.empty? %>
-		<div id="replyContainer">
-		<% @replies.each do |r| %>
-		<div class="reply clearfix">
-			<% if is_admin %>
-			<%= link_to '[X]', r, :method => :delete, :confirm => "Are you sure?", :class => 'delete_button' %>
-			<% end %>
-			<div class="authorContainer">
-		    <img src="http://www.gravatar.com/avatar/<%= gravatar_user(r.author) %>?s=80&d=mm" class="reply_gravatar" />
-				<% if is_user_admin( r.author ) %>
-				<%= link_to r.author, user_path( r.author ), :class => 'admin' %>
-				<% else %>
-				<%= link_to r.author, user_path( r.author ) %>
-				<% end %>
-		  </div>
-		  <div class="commentContainer">
-			  <%=	link_to image_tag(r.image_url(:thumb)), r.image_url, :target => 'new' if r.image? %>
-		    <p><%= raw h(hyperlink_parser(r.comment)) %></p>
-		  </div>
-		</div>
-		<% end %>
-		</div>
-	<% end %>
-	<div id="signup">
-	<%= form_for @reply, :html => { :multipart => true }, :url => { :action => 'create', :id => @topic.id } do |f| %>
-	<div class="input_container clearfix">
-	<%= f.label :image, "Add Image: " %>
-	<%= f.file_field :image %>
-	<br class="clearfix" />
-	<%= f.label :comment, "Comment: " %>
-	<%= f.text_area :comment, :rows => 3, :cols => 32%>
-	</div>
-	<div class="input_container clearfix">
-	<%= f.submit "Comment!", :disable_with => "Please Wait..." %>
-	</div>
-	<% end %>
-	</div>
-	
+  <%= render 'replies' %>
+	<%= render 'comment' %>
 </div>

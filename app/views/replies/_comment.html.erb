@@ -1,0 +1,19 @@
+<div id="signup">
+<% if is_user %>
+	<%= form_for @reply, :html => { :multipart => true }, :url => { :action => 'create', :id => @topic.id } do |f| %>
+	<div class="input_container clearfix">
+	<%= f.label :image, "Add Image: " %>
+	<%= f.file_field :image %>
+	<br class="clearfix" />
+	<%= f.label :comment, "Comment: " %>
+	<%= f.text_area :comment, :rows => 3, :cols => 32%>
+	</div>
+	<div class="input_container clearfix">
+	<%= f.submit "Comment!", :disable_with => "Please Wait..." %>
+	</div>
+	<% end %>
+<% else %>
+  <p>You must be a registered user to comment.</p>
+  <p>Please <%= link_to 'sign up', signup_path %> or <%= link_to 'log in!', login_path %></p>
+<% end %>
+</div>

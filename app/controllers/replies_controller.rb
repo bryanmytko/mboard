@@ -22,8 +22,9 @@ class RepliesController < ApplicationController
     @topic = Topic.find_by_slug( params[:slug] )
     @reply = Reply.new
     @replies = Reply.find_all_by_topic_id( @topic.id )
-    @topic.view_count += 1
-    @topic.save
+    @counter = @topic.topic_counter
+    @counter.count += 1
+    @counter.save
   end
   
   def destroy

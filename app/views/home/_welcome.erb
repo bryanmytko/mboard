@@ -1,0 +1,37 @@
+<div class="clearfix" id="welcomeContent">
+
+	<div id="gravatarContainer">
+		<%= image_tag "http://www.gravatar.com/avatar/" + gravatar_self + "?s=70&d=mm", :class => "homepage_gravatar" %>
+	  <!--<img src="http://www.gravatar.com/avatar/<%= gravatar_self %>?s=70&d=mm" class="homepage_gravatar" />-->
+	</div>
+
+	<div id="welcomeMessage">
+	  <h1>Messageboard Home</h1>
+	  <h2>Welcome, <%= @user.username %>!
+	  <% if is_admin #admin message %>
+	  <% end %>
+	  </h2>
+	</div>
+	
+</div>
+
+<div id="welcomeText">
+	<p>Welcome to BME.</p>
+	<p>If you don't have an avatar image, head over to <%= link_to 'gravatar.com', 'http://www.gravatar.com' %> and signup. There currently is no other custom avatar functionality.</p>
+	<p>I'm building this thing from scratch, on my own, so if there's a problem either <%= link_to 'email me', 'mailto:bryanmytko@gmail.com' %> or shut up. Eventually there will be a lot of a features, and it will be a lot more ~social, but for now it's just a simple messageboard.</p>
+	
+	<div class="important">
+  <p>Since the list of requested features has become so long, instead of listing what needs to be done, new feature notifications will go here.
+		<ul>
+			<li>Fixed link parsing. You <em>should</em> be able to just paste a link in and it will turn blue and be clickable. I haven't tested it, so I'm sure complicated links will break it. Don't put HTML it will look stupid.
+			<li>Image pasting added. Drop a direct image link in the comment field, and it <em>should</em> render properly. Again, this hasn't been tested much. Don't put HTML it will look stupid.
+			<li>No longer resizing small images. Images will only be resized if they exceed a width of 200px
+			<li>Carriage returns properly work within replies
+			<li>Admin users were added. They have a star next to their name. They can delete your shit.
+	  </ul>
+  <p>
+	</div>
+	
+	<p>This is still barely considered an alpha release, but I want to build some interest so feel free to get involved. And, if you'd really like to get involved and you're into <%= link_to 'this sort of thing','http://i.imgur.com/VhlQK.gif' %>, the source is here: <%= link_to 'https://github.com/bryanmytko/mboard', 'https://github.com/bryanmytko/mboard' %> - Feel free to contribute, fork, whatever.</p>
+	<p>Also, don't do anything stupid or I <em>will</em> ban you.</p>
+</div>

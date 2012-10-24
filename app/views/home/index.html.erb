@@ -1,27 +1,5 @@
-<div class="clearfix" id="welcomeContent">
-	<div id="gravatarContainer">
-    <img src="http://www.gravatar.com/avatar/<%= gravatar_self %>?s=70&d=mm" class="homepage_gravatar" />
-  </div>
-  <div id="welcomeMessage">
-    <h1>Messageboard Home</h1>
-    <h2>Welcome, <%= @user.username %>!
-    <% if is_admin %>
-      Congratulations, you have been promoted to Administrator!
-    <% end %>
-    </h2>
-  </div>
-</div>
+<%= render 'welcome' %>
 
-<div id="welcomeText">
-	<p>Welcome to BME.</p>
-	<p>If you don't have an avatar image, head over to <%= link_to 'gravatar.com', 'http://www.gravatar.com' %> and signup. There currently is no other custom avatar functionality.</p>
-	
-	<p>I'm building this thing from scratch, on my own, so if there's a problem either <%= link_to 'email me', 'mailto:bryanmytko@gmail.com' %> or shut up. Eventually there will be a lot of a features, and it will be a lot more ~social, but for now it's just a simple messageboard.</p>
-	
-	<p><strong>Known issues &amp; missing features include:</strong> <s>no link parsing</s>, <s>no image uploading</s>, <s>no topic creation</s>, no post editing, incomplete user pages, no pagination, as well as a bunch of other things. This is barely considered an alpha release, but I want to build some interest so feel free to get involved. And, if you'd really like to get involved and you're into <%= link_to 'this sort of thing','http://i.imgur.com/VhlQK.gif' %>, the source is here: <%= link_to 'https://github.com/bryanmytko/mboard', 'https://github.com/bryanmytko/mboard' %> - Feel free to contribute, fork, whatever.</p>
-	
-	<p>Also, don't do anything stupid or I <em>will</em> ban you.</p>
-</div>
 
 <div id="topics" class="clearfix">
 	<table cellpadding="0" cellmargin="0">

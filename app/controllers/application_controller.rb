@@ -45,9 +45,10 @@ class ApplicationController < ActionController::Base
   end
   helper_method :gravatar_user
   
-  def ae_some_html(s) 
+  def html_parse( s ) 
+    
     # converting newlines 
-    s.gsub!(/\r\n?/, "\n") 
+    s.gsub!( /\r\n?/, "\n" ) 
 
     # escaping HTML to entities 
     s = s.to_s.gsub('&', '&amp;').gsub('<', '&lt;').gsub('>', '&gt;') 
@@ -66,7 +67,12 @@ class ApplicationController < ActionController::Base
     # href="" attribute auto-adds http:// 
     s = s.gsub(/&lt;a.+?href\s*=\s*['"](.+?)["'].*?&gt;(.+?)&lt;\/a&gt;/im) { |x|
             '<a href="' + ($1.index('://') ? $1 : 'http://'+$1) + "\">" + $2 + "</a>" 
-          } 
+          }
+          
+    # img tag support
+     s = s.gsub(/&lt;img.*?src=['"](.*?)["'].*?&gt;/im) { |x|
+           '<a href="' + $1 + '" target="_blank"><img src="' + $1 + '" class="reply_image" /></a>'
+         }
 
     # replacing newlines to <br> ans <p> tags 
     # wrapping text into paragraph 
@@ -75,6 +81,6 @@ class ApplicationController < ActionController::Base
 
     s      
   end 
-  helper_method :ae_some_html
+  helper_method :html_parse
   
 end

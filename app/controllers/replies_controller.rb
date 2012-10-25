@@ -25,7 +25,7 @@ class RepliesController < ApplicationController
     @topic = Topic.find_by_slug( params[:slug] )
     @reply = Reply.new
     #pagination: turn array into paginate_arry to use with Kaminari
-    @replies = Kaminari.paginate_array( Reply.find_all_by_topic_id( @topic.id ) ).page( params[:page] ).per(4)
+    @replies = Kaminari.paginate_array( Reply.find_all_by_topic_id( @topic.id ) ).page( params[:page] ).per(10)
     @counter = @topic.topic_counter
     @counter.count += 1
     @counter.save

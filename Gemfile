@@ -7,6 +7,7 @@ gem 'carrierwave'
 gem 'rmagick'
 gem 'carrierwave_direct'
 gem 'fog' #s3 requirement for carrierwave
+gem 'kaminari' #pagination
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

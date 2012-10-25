@@ -1,3 +1,7 @@
+
+<%= paginate @replies %>
+
+<div class="clear"></div>
 <% unless @replies.empty? %>
 	<div id="replyContainer">
 	<% @replies.each do |r| %>
@@ -19,10 +23,11 @@
 		<% else %>
 		  <%= link_to image_tag(r.image_url(:thumb)), r.image_url, :class => 'reply_image', :target => 'new' if r.image? %>
 		<% end %>
-	    <p><%#= raw h(hyperlink_parser(r.comment)) %></p>
 	    <p><%= raw html_parse(hyperlink_parser(r.comment)) %></p>
 	  </div>
 	</div>
 	<% end %>
 	</div>
 <% end %>
+<%= paginate @replies %>
+<div class="clear"></div>

@@ -68,6 +68,10 @@ GEM
       thor (~> 0.14)
     jruby-pageant (1.1.1)
     json (1.7.5)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     macaddr (1.6.1)
       systemu (~> 2.5.0)
     mail (2.4.4)
@@ -143,6 +147,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   fog
   jquery-rails
+  kaminari
   mysql2
   pg
   rails (= 3.2.5)

@@ -239,7 +239,7 @@ a:hover { text-decoration: underline; color: #4183C4 }
 #gravatarContainer,
 #welcomeMessage { float: left }
 #welcomeText p { margin: 20px 0; line-height: 1.3em }
-#welcomeText .important { background: #F5FAFF; border: 1px solid #96aeb7; padding: 10px 20px; font-size: .9em }
+#welcomeText .important { background: #F5FAFF; border: 1px solid #96aeb7; padding: 10px 20px; font-size: .8em }
 #welcomeText ul li { margin: 8px 0 }
 #gravatarContainer { padding-top: 8px }
 
@@ -273,17 +273,16 @@ p.homepage_content { font-size: .9em }
 #signup form input[type=submit] { height: 30px; width: 100px; cursor: pointer; color: #666;
 	color: #ffffff;
 		padding: 0px 10px;
-		background: -moz-linear-gradient(
-			top,
-			#42aaff 0%,
-			#003366);
-		background: -webkit-gradient(
-			linear, left top, left bottom, 
-			from(#42aaff),
-			to(#003366));
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
-		border-radius: 10px;
+		
+		background: #88bfe8; /* Old browsers */
+		background: -moz-linear-gradient(top, #88bfe8 0%, #4183c4 100%); /* FF3.6+ */
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#88bfe8), color-stop(100%,#4183c4)); /* Chrome,Safari4+ */
+		background: -webkit-linear-gradient(top, #88bfe8 0%,#4183c4 100%); /* Chrome10+,Safari5.1+ */
+		background: -o-linear-gradient(top, #88bfe8 0%,#4183c4 100%); /* Opera 11.10+ */
+		background: -ms-linear-gradient(top, #88bfe8 0%,#4183c4 100%); /* IE10+ */
+		background: linear-gradient(to bottom, #88bfe8 0%,#4183c4 100%); /* W3C */
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#88bfe8', endColorstr='#4183c4',GradientType=0 ); /* IE6-9 */
+
 	font-size: 14px; }
 #signup form input[type=submit]:hover { background: #b9b9b9 }
 
@@ -298,7 +297,7 @@ p.homepage_content { font-size: .9em }
 .authorContainer .admin { background: url(<%= asset_path "star.png" %>) 0 0 no-repeat; display: block; padding: 2px 0 0 24px; margin-top: 3px }
 .commentContainer { padding: 0 0 0 20px; width: 86%; font-size: .8em }
 .commentContainer img { border: 1px solid #D5D5D5; margin: 0 12px 12px 0 }
-#reply #signup { float: right; margin-top: 0 !important; padding-top: 6px; border-top: 0; border-left: 0; border-right: 0; background: whitesmoke; padding-bottom: 6px }
+#reply #signup { float: right; margin-top: 0 !important; padding-top: 6px; border-left: 0; border-right: 0; background: whitesmoke; padding-bottom: 6px }
 #reply #signup textarea { font-size: .7em; padding: 6px; margin: 4px 0 0 12px; width: 306px }
 
 
@@ -327,6 +326,22 @@ p.homepage_content { font-size: .9em }
 font-size: 14px; }
 #newTopic form input[type=submit]:hover { background: #b9b9b9 }
 
+/* Pagination */
+.paginationContainer {  background: whitesmoke; width: 440px; float: right; padding: 12px 0 12px 0; border-bottom: 1px solid #d1d1d1 }
+.pagination { margin: 8px 0; float: right }
+.pagination span { display: block; float: left }
+.pagination .page, .pagination .next, .pagination .prev { background: whiteSmoke; border: 1px solid #D5D5D5; padding: 4px 9px; margin: 2px; text-align: center  }
+.pagination .last, .pagination .first { display: none }
+.pagination .page:first-child { margin-left: 0 }
+.pagination .current { background: #88bfe8; /* Old browsers */
+	background: #88bfe8; /* Old browsers */
+	background: -moz-linear-gradient(top, #88bfe8 0%, #4183c4 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#88bfe8), color-stop(100%,#4183c4)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #88bfe8 0%,#4183c4 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #88bfe8 0%,#4183c4 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #88bfe8 0%,#4183c4 100%); /* IE10+ */
+	background: linear-gradient(to bottom, #88bfe8 0%,#4183c4 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#88bfe8', endColorstr='#4183c4',GradientType=0 ); /* IE6-9 */ color: #fff }
 
 
 
@@ -365,6 +380,7 @@ font-size: 14px; }
    ========================================================================== */
 
 /* For image replacement */
+.clear { clear: both }
 .ir { display: block; border: 0; text-indent: -999em; overflow: hidden; background-color: transparent; background-repeat: no-repeat; text-align: left; direction: ltr; *line-height: 0; }
 .ir br { display: none; }
 

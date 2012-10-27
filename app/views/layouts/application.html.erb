@@ -27,7 +27,8 @@
   <%= link_to "", root_url, id: 'logo' %>
 	<% if current_user %>
 	<p>Logged in as <strong><%= current_user.username %></strong><em> | </em>
-	<%= link_to "Log Out", logout_path %>
+	<%= link_to "Log Out", logout_path %><em> | </em>
+	<%= link_to "Notifications" %>
   </p>
   <% else %>
   <p>

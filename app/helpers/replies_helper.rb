@@ -12,7 +12,7 @@ module RepliesHelper
       formats = ['.jpg','.jpeg','.gif','.png']
       if formats.any? { |w| u[w] } 
         string.gsub!(u,'<img src="' + u + '" />')
-      else
+      elsif u.include? 'http'
         string.gsub!(u,'<a href="' + u + '">' + u + '</a>')
       end
     end
@@ -21,6 +21,9 @@ module RepliesHelper
   
   def is_gif(data)
     return data.include?(".gif")
+  end
+  
+  def at_mention_parse( string )
   end
   
 end

@@ -70,9 +70,21 @@ class ApplicationController < ActionController::Base
           }
           
     # img tag support
-     s = s.gsub(/&lt;img.*?src=['"](.*?)["'].*?&gt;/im) { |x|
+    s = s.gsub(/&lt;img.*?src=['"](.*?)["'].*?&gt;/im) { |x|
            '<a href="' + $1 + '" target="_blank"><img src="' + $1 + '" class="reply_image" /></a>'
          }
+ 
+    #twitter style @at mention
+    s = s.gsub(/\B()(@[a-zA-Z0-9_-]*.)(\n|\s)??/i) { |x|   
+        link = $2
+        username = link.gsub(/@/,'')
+        user_display = User.find_by_username(username)
+        if user_display
+          '<a href="/user/' + user_display.username + '" target="_blank">@' + user_display.username + '</a> '
+        else
+          x
+        end
+    }
 
     # replacing newlines to <br> ans <p> tags 
     # wrapping text into paragraph 

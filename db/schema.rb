@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121024162032) do
+ActiveRecord::Schema.define(:version => 20121027035408) do
+
+  create_table "mentions", :force => true do |t|
+    t.string   "username"
+    t.string   "thread_link"
+    t.boolean  "read"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.string   "mentioned_by"
+  end
 
   create_table "replies", :force => true do |t|
     t.string   "author"

@@ -28,7 +28,12 @@
 	<% if current_user %>
 	<p>Logged in as <strong><%= current_user.username %></strong><em> | </em>
 	<%= link_to "Log Out", logout_path %><em> | </em>
-	<%= link_to "Notifications" %>
+	<% mentions = mention_count %>
+	<% unless mentions == 0 %>
+		<%= link_to "Notifications (" + mentions.to_s + ")",notification_path(5), :class => 'has_mentions' %>
+  <% else %>
+    <strong>Notifications (0)</strong>
+  <% end %>
   </p>
   <% else %>
   <p>

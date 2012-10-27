@@ -14,6 +14,7 @@ Mboard::Application.routes.draw do
   resources :session
   resources :topics
   resources :replies
+  resources :notifications
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,9 @@
+<%#= @mentions.inspect %>
+<%= @mentions.each do |m| %>
+<p><%= link_to m.mentioned_by, user_path( m.mentioned_by ) %> mentioned you,
+	 in the 
+	<!-- working on this regex -->
+	<strong><%= m.thread_link.gsub(/\B(.*??[\/])(.*??)(\?.*)/) { |t| $2 } %></strong>
+	
+	<%#= link_to m.thread_link, root_url + m.thread_link %></p>
+<% end %>

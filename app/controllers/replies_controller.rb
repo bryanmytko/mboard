@@ -4,11 +4,9 @@ class RepliesController < ApplicationController
     params[:reply][:author] = current_user.username
 
     @topic = Topic.find( params[:id] )
-       
     @reply = @topic.reply.build( params[:reply] )
     @topic.last_author = current_user.username
     @topic.save
-
     if @reply.save
       if params[:reply][:comment] =~ /\B(@[a-zA-Z0-9_-]*.)(\n|\s)??/i
         mentions = Array.new
@@ -17,7 +15,7 @@ class RepliesController < ApplicationController
           mentions.push( x ) if User.find_by_username( x ) && ( !mentions.include? x )
         }
         mentions.each do |m|
-          thread_link = request.env["HTTP_REFERER"].gsub( root_url,'' )
+          thread_link = request.env["HTTP_REFERER"].gsub( root_url,'' ) + "##{@reply.id.to_s}"
           read = 0
           @mention = Mention.new(
             :username => m,

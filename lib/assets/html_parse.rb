@@ -30,7 +30,7 @@ class HtmlParser
          }
  
     #twitter style @at mention
-    s = s.gsub(/^(@[a-zA-Z0-9_-]*.)(\n|\s)??/im) { |x|   
+    s = s.gsub(/\B(@[a-zA-Z0-9_-]*.)(\n|\s)??/im) { |x|   
         link = $1
         username = link.gsub(/@/,'')
         #user_display = User.find_by_username( username, :conditions => [ "lower(username) = ?",  username.downcase ] )

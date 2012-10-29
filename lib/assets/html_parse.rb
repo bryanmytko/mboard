@@ -38,7 +38,7 @@ class HtmlParser
           '<a href="/user/' + username + '" target="_blank">@' + username + '</a> '
        # else
        #   'at' + username
-        end
+        #end
     }
 
     # replacing newlines to <br> ans <p> tags 

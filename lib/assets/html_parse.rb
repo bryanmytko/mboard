@@ -35,7 +35,7 @@ class HtmlParser
         username = link.gsub(/@/,'')
         #user_display = User.find_by_username( username, :conditions => [ "lower(username) = ?",  username.downcase ] )
         #if user_display
-          '<a href="/user/' + user_display.username + '" target="_blank">@' + user_display.username + '</a> '
+          '<a href="/user/' + username + '" target="_blank">@' + username + '</a> '
        # else
        #   'at' + username
         end

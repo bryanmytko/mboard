@@ -4,6 +4,8 @@ require 'assets/html_parse' #lib/assets/html_parse.rb
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  
+  ENV['reply_pagination_count'] = "10"
 
   private
   

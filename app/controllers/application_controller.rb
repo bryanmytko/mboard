@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
   
   def is_user_admin( author )
     return false if author.nil?
-    admin_status = User.find_by_username( author )
+    admin_status = User.find_by_username( author.downcase.capitalize )
     admin_status.is_admin
   end
   helper_method :is_user_admin
@@ -45,7 +45,7 @@ class ApplicationController < ActionController::Base
   helper_method :gravatar_self
   
   def gravatar_user( author )
-    user = User.find_by_username( author )
+    user = User.find_by_username( author.downcase.capitalize )
     gravatar = Digest::MD5.hexdigest( user.email.downcase )
   end
   helper_method :gravatar_user

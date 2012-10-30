@@ -19,12 +19,13 @@
 	  })();
 
 	</script>
+	<link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
 </head>
 <body>
 	
 <div id="header">
 	<div id="headerContent" class="clearfix">
-  <%= link_to "", root_url, id: 'logo' %>
+  <%= link_to "bestmessageboardever.", root_url, id: 'logo' %>
 	<% if current_user %>
 	<p>Logged in as <strong><%= current_user.username %></strong><em> | </em>
 	<%= link_to "Log Out", logout_path %><em> | </em>
@@ -45,7 +46,7 @@
 </div>
 	
 <div id="mainContainer">
-	<div id="mainContent">
+	<div id="mainContent" class="clearfix">
 	<% flash.each do |k,v| =%>
 	<div id="flashContainer">
 	  <div class="<%= k %>">

@@ -7,23 +7,31 @@ class RepliesController < ApplicationController
     @reply = @topic.reply.build( params[:reply] )
     @topic.last_author = current_user.username
     @topic.save
+    
+    #paginate replies so we know where to link mention to
+    @replies = Kaminari.paginate_array( 
+    Reply.find_all_by_topic_id( @topic.id ) 
+    ).page( params[:page] ).per( ENV['reply_pagination_count'] )
+    
     if @reply.save
       
-      @replies = Kaminari.paginate_array( 
-      Reply.find_all_by_topic_id( @topic.id ) 
-      ).page( params[:page] ).per( ENV['reply_pagination_count'] )
-      
-      @thread_link = 'topic/' + @topic.slug + '?page=' + @replies.num_pages.to_s + "##{@reply.id.to_s}"
-      
-      @replies.num_pages.to_s
-      if params[:reply][:comment] =~ /\B(@[a-zA-Z0-9_-]*.)(\n|\s)??/i
-        mentions = Array.new
+      #if reply contains 1 or more @ style mentions
+      if params[:reply][:comment] =~ /\B(@[a-zA-Z0-9_-]*.)(\n|\s)??/i 
+        
+        @thread_link = 'topic/' + @topic.slug + '?page=' + @replies.num_pages.to_s + "##{@reply.id.to_s}"
+
+        #create a temporary array to hold each mention
+        mentions = Array.new 
+        
         params[:reply][:comment].gsub( /\B(@[a-zA-Z0-9_-]*.)(\n|\s)??/i ) { |x|
-          x.gsub!( '@','' ).strip!
-          mentions.push( x ) if User.find_by_username( x.downcase.capitalize ) && ( !mentions.include? x )
+          #format username
+          x = x.gsub( '@','' ).strip.downcase.capitalize
+          #push into temp array all the mentions in the reply, if they are valid username and unique
+          mentions.push( x ) if User.find_by_username( x ) && ( !mentions.include? x )
         }
+        
+        #create a mention record for each mention
         mentions.each do |m|
-          m = m.downcase.capitalize
           @mention = Mention.new(
             :username => m,
             :thread_link => @thread_link,
@@ -47,10 +55,12 @@ class RepliesController < ApplicationController
   def show
     @topic = Topic.find_by_slug( params[:slug] )
     @reply = Reply.new
+    
     #pagination: turn array into paginate_arry to use with Kaminari
     @replies = Kaminari.paginate_array( 
     Reply.find_all_by_topic_id( @topic.id ) 
     ).page( params[:page] ).per( ENV['reply_pagination_count'] )
+    
     @counter = @topic.topic_counter
     @counter.count += 1
     @counter.save

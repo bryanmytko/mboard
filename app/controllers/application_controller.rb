@@ -50,14 +50,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :gravatar_user
   
-  #should move into a class file, eventually. getting bulky!
   def html_parse( string ) 
     HtmlParser::reply_parse( string )
   end 
   helper_method :html_parse
-  
-  #eventually move these into assets/notifications.rb
-  #combine for notifications count?
+
   def mention_count
     mentions = Mention.find_all_by_username( current_user.username )
     mentions.length

@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new( params[:user].downcase.capitalize )
+    params[:user][:username] = params[:user][:username].downcase.capitalize
+    formatted_username = params[:user]
+    @user = User.new( formatted_username )
     if @user.save
       flash[:notice] = 'Signed up!'
       redirect_to( root_url )

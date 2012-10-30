@@ -23,6 +23,7 @@ class RepliesController < ApplicationController
           mentions.push( x ) if User.find_by_username( x.downcase.capitalize ) && ( !mentions.include? x )
         }
         mentions.each do |m|
+          m = m.downcase.capitalize
           @mention = Mention.new(
             :username => m,
             :thread_link => @thread_link,

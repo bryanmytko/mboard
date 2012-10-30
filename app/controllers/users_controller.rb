@@ -5,17 +5,17 @@ class UsersController < ApplicationController
   end
   
   def create
-    @user = User.new(params[:user])
+    @user = User.new( params[:user].downcase.capitalize )
     if @user.save
       flash[:notice] = 'Signed up!'
-      redirect_to(root_url)
+      redirect_to( root_url )
     else 
       render "new"
     end
   end
   
   def show
-    @user = User.find_by_username(params[:author])
-    @replies = Reply.find_all_by_author(params[:author])
+    @user = User.find_by_username( params[:author] )
+    @replies = Reply.find_all_by_author( params[:author] )
   end
 end

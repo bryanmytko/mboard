@@ -6,6 +6,7 @@ class RepliesController < ApplicationController
     @topic = Topic.find( params[:id] )
     @reply = @topic.reply.build( params[:reply] )
     @topic.last_author = current_user.username
+    @topic.update_attribute(:updated_at, Time.now)
     @topic.save
     
     #paginate replies so we know where to link mention to

@@ -20,7 +20,7 @@ class RepliesController < ApplicationController
         mentions = Array.new
         params[:reply][:comment].gsub( /\B(@[a-zA-Z0-9_-]*.)(\n|\s)??/i ) { |x|
           x.gsub!( '@','' ).strip!
-          mentions.push( x ) if User.find_by_username( x ) && ( !mentions.include? x )
+          mentions.push( x ) if User.find_by_username( x, :conditions => [ 'username ~* ?', x ] ) && ( !mentions.include? x )
         }
         mentions.each do |m|
           @mention = Mention.new(

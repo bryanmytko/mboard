@@ -59,7 +59,7 @@ class RepliesController < ApplicationController
     
     #pagination: turn array into paginate_arry to use with Kaminari
     @replies = Kaminari.paginate_array( 
-    Reply.find_all_by_topic_id( @topic.id ) 
+    Reply.find_all_by_topic_id( @topic.id, :order => "created_at ASC"  ) 
     ).page( params[:page] ).per( ENV['reply_pagination_count'] )
     
     @counter = @topic.topic_counter

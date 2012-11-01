@@ -2,14 +2,14 @@
 	<div id="user_content_a">
 		<h1><%= @user.username %></h1>
 		<p id="user_type">
-		<% if is_admin %>
+		<% if is_user_admin( @user.username ) %>
 		Administrator
 		<% else %>
 		Normal Member
 		<% end %>
 		</p>
 		<p class="post_count"><%= @replies.count %> post<% unless @replies.count < 0 %>s<% end %></p>
-		<%= image_tag "http://www.gravatar.com/avatar/" + gravatar_self + "?s=200&d=mm" %>
+		<%= image_tag "http://www.gravatar.com/avatar/" + gravatar_user( @user.username ) + "?s=200&d=mm" %>
 		<div id="user_self_data">
 			<h3>Location</h3>
 			<p>Somewhere, USA</p>

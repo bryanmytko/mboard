@@ -23,10 +23,11 @@
 				Last Post
 			</th>
 		</tr>
+	<%#= paginate @topics %>
 	<% @topics.each do |t| %>
 	<tr>
 		<td class="title">
-	    <%= link_to t.title.capitalize, topic_path( t.slug ) %>
+	    <%= link_to t.title.capitalize, topic_path( t.slug, :page => last_page( t.id ) ) %>
 	  </td>
 	  <td>
 		  <p><%= reply_count(t.id) %></p>

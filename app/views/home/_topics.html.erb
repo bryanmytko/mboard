@@ -1,0 +1,42 @@
+<div id="topics" class="clearfix">
+<table cellpadding="0" cellmargin="0">
+	<tr>
+		<th class="title">Topic</th>
+		<th>Replies</th>
+		<th>Last Reply By?</th>
+		<th>Views</th>
+		<th>Created By</th>
+		<th>Last Post</th>
+	</tr>
+	<% @topics.each do |t| %>
+	<tr>
+		<td class="title">
+	    <%= link_to t.title.capitalize, topic_path( t.slug, :page => last_page( t.id ) ) %>
+	  </td>
+	  <td>
+		  <p><%= reply_count t.id %></p>
+		</td>
+		<td>
+			<p><%= unless t.last_author.nil?
+				  link_to t.last_author, user_path( t.last_author )
+				else
+				  '-'
+				end
+			%></p>
+		</td>
+		<td>
+			<p><%= t.topic_counter.count.to_s %></p>
+		</td>
+		<td>
+			<p>
+			<%= link_to t.creator, user_path( t.creator ) unless t.creator.nil? %></p>
+		</td>
+	  <td>
+		  <p><%= t.updated_at.to_formatted_s( :long_ordinal ) %>
+				<% if is_admin %>
+				  <%= link_to '[X]', remove_topic_path( t ), :confirm => "Are you sure?", :class => 'delete_button' %>
+				<% end %>
+			</p>
+	  </td>
+	</tr>
+	<% end %>

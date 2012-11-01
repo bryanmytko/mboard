@@ -21,22 +21,24 @@ class ApplicationController < ActionController::Base
   def is_admin
     return false if session[:user_id].nil?
     admin_status = User.find_by_id( session[:user_id] )
-    admin_status.is_admin
+    admin_status.is_admin #boolean
   end
   helper_method :is_admin
+  alias is_admin? is_admin
   
   def is_user_admin( author )
     return false if author.nil?
     admin_status = User.find_by_username( author.downcase.capitalize )
-    admin_status.is_admin
+    admin_status.is_admin #boolean
   end
   helper_method :is_user_admin
+  alias is_user_admin? is_user_admin
   
   def is_user
-    return false if session[:user_id].nil?
-    true
+    session[:user_id].nil? ? false : true
   end
   helper_method :is_user
+  alias is_user? is_user 
   
   def gravatar_self
     user = User.find_by_id( session[:user_id] )

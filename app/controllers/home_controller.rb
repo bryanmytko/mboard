@@ -6,5 +6,7 @@ class HomeController < ApplicationController
     @user = User.find_by_id( session[:user_id] )
     @topics = Topic.find( :all, :order => 'updated_at DESC' )
     @topic = Topic.new
+    @q = Topic.ransack(params[:q])
+    @topics = @q.result(:distinct => true)
   end 
 end

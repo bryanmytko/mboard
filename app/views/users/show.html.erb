@@ -1,2 +1,38 @@
-<p>User: <%= @user.username %></p>
-<p>Posts: <%= @replies.count %></p>
+<div id="user">
+	<div id="user_content_a">
+		<h1><%= @user.username %></h1>
+		<p id="user_type">
+		<% if is_admin %>
+		Administrator
+		<% else %>
+		Normal Member
+		<% end %>
+		</p>
+		<p class="post_count"><%= @replies.count %> post<% unless @replies.count < 0 %>s<% end %></p>
+		<%= image_tag "http://www.gravatar.com/avatar/" + gravatar_self + "?s=200&d=mm" %>
+		<div id="user_self_data">
+			<h3>Location</h3>
+			<p>Somewhere, USA</p>
+			<h3>Biography</h3>
+	    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.</p>
+	    <h3>Interests</h3>
+	    <p>Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco</p>
+	    <h3>Laboris Nisi Ut</h3>
+	    <p>Aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	  </div>
+	</div>
+	<div id="user_content_b">
+		<!-- maybe use? -->
+		<%# if is_gif(@recent_image.image.to_s) %>
+		  <%#=	link_to image_tag(@recent_image.image_url, :class => 'reply_image' ), @recent_image.image_url, :target => 'new' if @recent_image.image? %>
+		<%# else %>
+		  <%#= link_to image_tag(@recent_image.image_url(:thumb)), @recent_image.image_url, :class => 'reply_image', :target => 'new' if @recent_image.image? %>
+		<%# end %>
+		<!--<h2>Some Recent Stuff</h2>-->
+		<%# @recent_posts.each do |r| %>
+		<div class="commentContainer">
+	    <p><%#= raw html_parse(hyperlink_parser(r.comment)) %></p>
+	  </div>
+		<%# end %>
+	</div>
+</div>

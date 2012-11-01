@@ -217,9 +217,9 @@ td { vertical-align: top; }
 /* ==|== primary styles =====================================================
    Author: Bryan Mytko bryanmytko@gmail.com
    ========================================================================== */
-
-body { font-family: "Helvetica", "arial", sans-serif; font-size: 1.0em; background-color: #414141; color: #444 }
-#mainContainer { width: 920px; margin: 0px auto; background-color: #fff; padding: 20px 30px; border: 1px solid #d1d1d1 }
+html { height: 100% }
+body { height: 100%; font-family: "Helvetica", "arial", sans-serif; font-size: 1.0em; background-color: #414141; color: #444 }
+#mainContainer { width: 920px; margin: 0px auto -32px; background-color: #fff; padding: 20px 30px; border: 1px solid #d1d1d1; min-height: 100%; height: auto !important; height: 100% }
 h1 { font-family: "Lato", "Helvetica", "arial", sans-serif; margin: 0 0 12px 0; color: #555 }
 h2 { color: #4183C4 }
 p { margin: 0 }
@@ -271,7 +271,7 @@ p.homepage_content { font-size: .9em }
 .error p { color: #fff; padding: 6px }
 #flashContainer { height: 20px; width: 100% }
 
-#signup { width: 400px; margin: 50px auto; background: url(<%= asset_path "formBg.png" %>) 0 0 repeat-x #e6e3e3; border: 1px solid #dadada; padding: 20px }
+#signup { width: 400px; margin: 50px auto; background: whitesmoke; border: 1px solid #dadada; padding: 20px }
 #signup .input_container { margin: 12px 0 }
 #signup form { font-size: 1.3em; color: #666 }
 #signup form label { float: left; font-size: .7em; padding: 4px 0 }
@@ -348,6 +348,24 @@ font-size: 14px; }
 	background: -ms-linear-gradient(top, #88bfe8 0%,#4183c4 100%); /* IE10+ */
 	background: linear-gradient(to bottom, #88bfe8 0%,#4183c4 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#88bfe8', endColorstr='#4183c4',GradientType=0 ); /* IE6-9 */ color: #fff }
+	
+
+/* User pages */
+#user {}
+#user h1 { font-size: 44px; font-weight: 900; color: #000; margin: 0; padding: 0; line-height: 1.2em }
+#user h2 { margin-left: 18px }
+#user h3 { margin: 12px 0 0 0 }
+#user p { margin: 0 }
+#user .post_count { color: #4183C4; font-size: .8em }
+#user #user_self_data p { font-size: .8em }
+#user #user_type { font-style: italic }
+#user img { margin: 6px 0 }
+#user_content_a { float: left; width: 250px }
+#user_content_b { float: left; width: 400px }
+
+footer { height: 32px; background: #000; width: 100% }
+#footer_content { width: 982px; margin: 0 auto; color: #fff }
+#footer_content p { font-family: "lato", arial, sans-serif; font-size: .7em; color: #444; padding-top:8px }
 
 /* ==|== media queries ======================================================
    EXAMPLE Media Query for Responsive Design.

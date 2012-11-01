@@ -1,11 +1,12 @@
 <div class="clearfix" id="welcomeContent">
 
 	<div id="gravatarContainer">
-		<%= image_tag "http://www.gravatar.com/avatar/" + gravatar_self + "?s=130&d=mm", :class => "homepage_gravatar" %>
+		<% gravatar_image = image_tag "http://www.gravatar.com/avatar/" + gravatar_self + "?s=130&d=mm", :class => "homepage_gravatar" %>
+		<%= link_to gravatar_image, user_path( @user.username ) %>
 	</div>
 
 	<div id="welcomeMessage">
-	  <p>Welcome to BME,  <%= @user.username %>. 	If you don't have an avatar image, head over to <%= link_to 'gravatar.com', 'http://www.gravatar.com' %> and signup. There currently is no other custom avatar functionality.</p>
+	  <p>Welcome to BME,  <%= @user.username %>. 	If you don't have an avatar image, head over to <%= link_to 'gravatar.com', 'http://www.gravatar.com' %> and sign up. There currently is no other custom avatar functionality.</p>
 		<p>I'm building this thing from scratch, on my own and in my spare time - so if there's a problem either <%= link_to 'email me', 'mailto:bryanmytko@gmail.com' %>, post about it, or shut up. Eventually there will be a lot of a features, and it will be a lot more ~social, but for now it's just a simple messageboard.</p>
 		<p>This is still barely considered an alpha release, but I want to build some interest so feel free to get involved. And, if you'd really like to get involved and you're into <%= link_to 'this sort of thing','http://i.imgur.com/VhlQK.gif' %>, the source is here: <%= link_to 'https://github.com/bryanmytko/mboard', 'https://github.com/bryanmytko/mboard' %> - Feel free to contribute, fork, whatever.</p>
 		<p>Thank you for using my buggy software, I love you all.</p>

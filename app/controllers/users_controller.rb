@@ -19,5 +19,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by_username( params[:author] )
     @replies = Reply.find_all_by_author( params[:author] )
+    @recent_image = Reply.find_by_author( params[:author], :conditions => "image IS NOT NULL" )
+    @recent_posts = Reply.find_all_by_author( params[:author], :limit => 5, :order => 'created_at DESC' )#, :conditions => "comment <> ''" )
   end
 end

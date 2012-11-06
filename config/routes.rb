@@ -2,7 +2,7 @@ Mboard::Application.routes.draw do
  
   root :to => "home#index"
   
-  match 'topic/:slug' => 'replies#show', :as => :topic,:constraints => { :slug => /.*/ }
+  match 'topic/:slug' => 'replies#show', :as => :topic, :constraints => { :slug => /.*/ }
   match 'remove_topic/:id' => 'topics#destroy', :as => :remove_topic
   match 'user/:author' => 'users#show', :as => :user
   

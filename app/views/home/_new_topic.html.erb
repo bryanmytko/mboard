@@ -1,0 +1,9 @@
+<tr class="new_topic">
+ <td colspan="6">
+   <%= form_for @topic do |t| %>
+   <%= t.label :title, "New Topic: " %>
+   <%= t.text_field :title %>
+   <%= t.submit "Create!" %>
+   <% end %>
+ </td>
+</tr>

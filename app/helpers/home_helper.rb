@@ -4,6 +4,10 @@ module HomeHelper
   end
   
   def last_page id
-    reply_count( id ) / ENV['reply_pagination_count'].to_i + 1
+    ( reply_count( id ) / ( ENV['reply_pagination_count'].to_i + 1 ) ) + 1
+  end
+  
+  def last_post reply
+    reply.last.nil? ? '' : reply.last.id.to_s
   end
 end

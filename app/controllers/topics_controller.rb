@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   def create
     params[:topic][:creator] = User.find(session[:user_id]).username
     if params[:topic][:creator].nil?
-      params[:topic][:creator] = 'Foo User'
+      params[:topic][:creator] = '-'
     end
     params[:topic][:slug] = params[:topic][:title].gsub(/ /,'-')
     params[:topic][:view_count] = 0

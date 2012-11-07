@@ -82,7 +82,6 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
 </head>
 <body>
-	
 <div id="header">
 	<div id="headerContent" class="clearfix">
   <%= link_to "bestmessageboardever.", root_url, id: 'logo' %>
@@ -104,7 +103,6 @@
   <% end %>
    </div>
 </div>
-	
 <div id="mainContainer">
 	<div id="mainContent" class="clearfix">
 	<% flash.each do |k,v| =%>
@@ -119,9 +117,9 @@
 </div>
 <footer>
 	<div id="footer_content">
+		<%= link_to "bestmessageboardever.", root_url, id: 'logo', :class => 'footer_logo' %>
 		<p>&copy; 2012 Bryan Mytko | Whatever Else Goes Here | Hi.</p>
 	</div>
 </footer>
-
 </body>
 </html>

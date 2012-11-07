@@ -273,11 +273,11 @@ p.homepage_content { font-size: .9em }
 
 #signup { width: 400px; margin: 50px auto; background: whitesmoke; border: 1px solid #dadada; padding: 20px }
 .input_container { margin: 12px 0 }
-#signup form { font-size: 1.3em; color: #666 }
-#signup form label { float: left; font-size: .7em; padding: 4px 0 }
-#signup form input { height: 20px; width: 250px; padding: 3px; border: 1px solid #b9b9b9; float: right; font-size: .7em; color: #666 }
-#signup form input[type=submit] { height: 30px; width: 100px; cursor: pointer; color: #ffffff; padding: 0px 10px; background:#4183C4; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; font-size: 14px }
-#signup form input[type=submit]:hover { background: #b9b9b9 }
+form { font-size: 1.3em; color: #666 }
+form label { float: left; font-size: .7em; padding: 4px 0 }
+form input { height: 20px; width: 250px; padding: 3px; border: 1px solid #b9b9b9; float: right; font-size: .7em; color: #666 }
+form input[type=submit] { height: 30px; width: 100px; cursor: pointer; color: #ffffff; padding: 0px 10px; background:#4183C4; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; font-size: 14px }
+form input[type=submit]:hover { background: #b9b9b9 }
 
 #replyContainer { border-top: 1px solid #d5d5d5 }
 #replyContainer .reply_image { max-width: 200px }
@@ -291,15 +291,21 @@ p.homepage_content { font-size: .9em }
 .commentContainer { padding: 0 0 0 20px; width: 86%; font-size: .8em }
 .commentContainer img { border: 1px solid #D5D5D5; margin: 0 12px 12px 0 }
 #reply #signup { float: right; margin-top: 0 !important; padding-top: 6px; border-left: 0; border-right: 0; background: whitesmoke; padding-bottom: 6px }
-#reply #signup textarea { font-size: .7em; padding: 6px; margin: 4px 0 0 12px; width: 306px }
+#reply #signup textarea { font-size: .7em; padding: 6px; margin: 4px 0 0 12px; width: 306px; height: 140px }
+
+#reply_form { width: 880px; background: whitesmoke; border-bottom: 1px solid #dadada; padding: 0 20px; margin-bottom: 50px; font-size: .9em }
+#reply_form textarea { width: 870px; height: 130px; color: #666; font-size: .8em; padding: 6px; border: 1px solid #dadada }
+#reply_form input { float: none; margin: 0 0 0 6px; border: 0 }
+#reply_form .image_label { padding-top: 6px }
 
 
+.reply .reply_date { position: absolute; bottom: 2px; right: 4px; font-size: .6em; color: #a5a5a5; font-family: arial, sans-serif }
 .reply .delete_button { position: absolute; right: 8px; top: 8px; font-size: 1.3em; color: whitesmoke; text-decoration: none }
 .reply .delete_button:hover { color: red }
 #topics .delete_button { color: whitesmoke; margin-left: 12px }
 #topics .delete_button:hover { color: red }
 
-.new_topic form { float: right; margin-right: 50px }
+.new_topic form { float: right; margin-right: 50px; font-size: 1em }
 .new_topic form label { float: left; font-size: 1em; padding: 4px 0 }
 .new_topic form input { height: 20px; width: 250px; padding: 3px; border: 1px solid #b9b9b9; float: left; font-size: 1em; color: #666; margin-left: 12px }
 .new_topic form input[type=submit] { height: 30px; width: 100px; cursor: pointer; color: #ffffff; padding: 0px 10px; background:#4183C4; -moz-border-radius: 6px; -webkit-border-radius: 6px; border-radius: 6px; font-size: 14px }
@@ -323,7 +329,7 @@ p.homepage_content { font-size: .9em }
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#88bfe8', endColorstr='#4183c4',GradientType=0 ); /* IE6-9 */ color: #fff }
 	
 #filter_link { display: block; float: right; font-size: .8em; margin-bottom: 8px }
-#filter_container { display: none }
+#filter_container { display: none; font-size: .8em }
 	
 
 /* User pages */
@@ -347,6 +353,8 @@ p.homepage_content { font-size: .9em }
 #search input[type=submit]:hover { background: #b9b9b9 }
 
 footer { height: 32px; background: #000; width: 100% }
+.footer_logo { display: block; float: right; margin-top: 6px }
+.footer_logo:hover { text-decoration: none }
 #footer_content { width: 982px; margin: 0 auto; color: #fff }
 #footer_content p { font-family: "lato", arial, sans-serif; font-size: .7em; color: #444; padding-top:8px }
 

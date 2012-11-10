@@ -26,4 +26,26 @@ module RepliesHelper
   def at_mention_parse( string )
   end
   
+  def user_has_liked( obj )
+    unless obj.likes.nil?
+      if obj.likes.include? current_user.id.to_s
+        return true
+      end
+    end
+    false
+  end
+      
+  
+  def likes_count( obj )
+    obj.likes.nil? ? 0 : obj.likes.length
+  end
+  
+  def likes_count_text( obj )
+    unless obj.likes.nil?
+      (obj.likes.length) == 1 ? '1 Person like this.' : obj.likes.length.to_s + ' People like this.'
+    else
+      '0 People like this.'
+    end
+  end
+   
 end

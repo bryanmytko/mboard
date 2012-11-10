@@ -15,6 +15,7 @@ Mboard::Application.routes.draw do
   resources :topics, :constraints => { :topic => /.*/ }
   resources :replies
   resources :notifications
+  resources :likes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

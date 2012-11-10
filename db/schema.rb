@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121030211001) do
+ActiveRecord::Schema.define(:version => 20121107034611) do
 
   create_table "mentions", :force => true do |t|
     t.string   "username"
@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20121030211001) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "image"
+    t.text     "likes"
   end
 
   create_table "topic_counters", :force => true do |t|

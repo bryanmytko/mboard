@@ -62,6 +62,8 @@ class RepliesController < ApplicationController
     Reply.find_all_by_topic_id( @topic.id, :order => "created_at ASC"  ) 
     ).page( params[:page] ).per( ENV['reply_pagination_count'] )
     
+    @l_test = '234343344'
+    
     @counter = @topic.topic_counter
     @counter.count += 1
     @counter.save

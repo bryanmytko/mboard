@@ -27,6 +27,13 @@
 	    <p><%= raw html_parse(hyperlink_parser(r.comment)) %></p>
 	  </div>
 	  <p class="reply_date"><%= r.created_at %></p>
+	  <p class="reply_like">
+		  <% unless user_has_liked( r ) %>
+	    <%= link_to "Like?", edit_like_path(r), :update => "item_list", :remote => true %> 
+	    <% end %>
+		<span class="<%= likes_count( r ) %> reply_like_count">
+		<%= likes_count_text( r ) %>
+		</span></p>
 	</div>
 	<% end %>
 	</div>

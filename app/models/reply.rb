@@ -1,5 +1,6 @@
 class Reply < ActiveRecord::Base
   belongs_to :topic
-  attr_accessible :author, :comment, :topic_id, :image
+  serialize :likes
+  attr_accessible :author, :comment, :topic_id, :image, :likes
   mount_uploader :image, ImageUploader
 end

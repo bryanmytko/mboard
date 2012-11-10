@@ -1,0 +1,18 @@
+
+
+jQuery(document).ready(function($){
+	$('.reply_like > a').bind('ajax:complete', function(xhr, data, status){
+		
+		var likes_text = '';
+		var likes = Number($(this).parent().find('span.reply_like_count').attr('class')[0]) + 1;
+		
+		if (likes == 1)
+		  likes_text = '1 person liked this';
+		else
+		  likes_text = likes + ' people likes this';
+		
+	  $(this).parent().children('span').html(likes_text);
+	  $(this).remove();
+	
+	});
+});

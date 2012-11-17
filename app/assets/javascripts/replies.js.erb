@@ -15,4 +15,9 @@ jQuery(document).ready(function($){
 	  $(this).remove();
 	
 	});
+	
+	$('.reply_like_count').hover(function(){
+		console.log('hovered...' + $(this).parent().next('div.like_names'));
+		$(this).parent().children('div.like_names').toggle();
+	});
 });

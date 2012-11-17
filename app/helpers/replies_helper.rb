@@ -47,5 +47,26 @@ module RepliesHelper
       '0 People like this.'
     end
   end
+  
+  def like_people_list( obj )
+    if obj.likes
+      string = '<div class="like_names clearfix"><ul>'
+      case obj.likes.length
+        when 0 then return string = ''
+        when 1..4 then
+          obj.likes.each do |l|
+            string += "<li>#{User.find(l).username}</li>"
+          end
+        else
+          4.times do |l|
+            string += "<li>#{User.find(obj.likes[l]).username}</li>"
+          end
+          remaining = obj.likes.length - 4
+          string += "<li>And #{remaining} more</li>"
+      end
+      return  string += '</ul></div>'
+  	end
+  end
+
    
 end

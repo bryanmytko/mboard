@@ -1,5 +1,6 @@
 
 class ChatsController < ApplicationController
+  before_filter :authorize
    def index
      @chats = Chat.all
    end

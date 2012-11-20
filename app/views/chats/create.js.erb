@@ -1,0 +1,10 @@
+<% broadcast "/messages/new" do %>
+
+		var inputtext = $('input[type=text]');
+		var message = '<%= @chat.text %>';
+		var uname = '<%= chat_name( @chat.username ) %>';
+	
+	  $('#chat_list').append('<li><img src="http://www.gravatar.com/avatar/<%= gravatar_user( chat_name( @chat.username ) ) %>?s=40&d=mm" alt="" /><strong>' + uname + ': </strong>' + message + '</li>');
+		
+<% end %>
+$('input[type=text]').val(''); //clear own form only

@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   
   ENV['reply_pagination_count'] = "25"
+  ENV['FAYE_PATH'] = 'http://fidelio-faye.herokuapp.com:80/faye'
 
   private
   

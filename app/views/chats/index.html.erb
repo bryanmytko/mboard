@@ -1,0 +1,15 @@
+<div id="chat">
+	<div id="chat_box">
+		<ul id="chat_list">
+			<% @chats.each do |c| %>
+			<li><img src="http://www.gravatar.com/avatar/<%= gravatar_user( chat_name( c.username ) ) %>?s=40&d=mm" alt="" /><strong><%= chat_name( c.username ) %>:</strong> <%= c.text %>
+			</li>
+			<% end %>
+		</ul>
+	</div>
+
+	<%= form_for Chat.new, :remote => true do |f| %>
+	<%= f.text_field :text, :id => 'message_text' %>
+	<%= f.submit "Send Message" %>
+	<% end %>
+</div>

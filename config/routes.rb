@@ -9,6 +9,7 @@ Mboard::Application.routes.draw do
   get 'signup', to: 'users#new', as: 'signup'
   get 'login', to: 'session#new', as: 'login'
   get 'logout', to: 'session#destroy', as: 'logout'
+  get 'chat', to: 'chats#index', as: 'chat'
   
   resources :users
   resources :session
@@ -16,6 +17,7 @@ Mboard::Application.routes.draw do
   resources :replies
   resources :notifications
   resources :likes
+  resources :chats
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

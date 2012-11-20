@@ -8,17 +8,19 @@ $(document).ready(function(){
   //  faye.disable('websocket');
 
   faye.subscribe("/messages/new", function(data){
-            eval(data);
+      eval(data);
+      scroll_current();
    });
 
-	faye.callback(function() {
-		//scroll_current();
+	faye.callback(function(){
+		console.log('callback');
+		scroll_current();
 	});
 	
 	faye.errback(function(error) {
 	});
 
-  /*function scroll_current(){
+  function scroll_current(){
 	
 	  var chat_box = $('#chat_box');
 		var chat_list = $('#chat_list');
@@ -29,7 +31,7 @@ $(document).ready(function(){
 		
 	}
 	
-	scroll_current();*/
+	scroll_current();
 
 
 });

@@ -1,23 +1,38 @@
-
-
 jQuery(document).ready(function($){
 	$('.reply_like > a').bind('ajax:complete', function(xhr, data, status){
 		
 		var likes_text = '';
 		var likes = Number($(this).parent().find('span.reply_like_count').attr('class')[0]) + 1;
+		var like_box = $(this).parent().children('div.like_names');
 		
 		if (likes == 1)
 		  likes_text = '1 person liked this';
 		else
 		  likes_text = likes + ' people likes this';
 		
+		var user = $('span#logged_in_name').html();
+
+		if(like_box.length == 0)
+		  $(this).parent().append('<div class="like_names"><ul><li>' + user + '</li></ul></div>');
+		else if(Number($(this).parent().children('span.reply_like_count').attr('class')[0]) < 4)
+		  like_box.children('ul').append('<li>' + user + '</li>');
+		else {
+		  var like_box = $(this).parent().children('div.like_names');
+			var cur_text = like_box.children('ul').children('li:eq(4)').html().split(" ");
+		  cur_text[1] = ' ' + (Number(cur_text[1]) + 1) + ' ';
+			like_box.children('ul').children('li:eq(4)').html(cur_text);
+		}
+		
 	  $(this).parent().children('span').html(likes_text);
 	  $(this).remove();
 	
 	});
 	
-	$('.reply_like_count').hover(function(){
-		console.log('hovered...' + $(this).parent().next('div.like_names'));
-		$(this).parent().children('div.like_names').toggle();
+	$('.reply_like_count').bind('hover', function(){
+
+    var like_box = $(this).parent().children('div.like_names');
+		like_box.toggle();
+		
 	});
+	
 });

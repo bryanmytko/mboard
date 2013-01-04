@@ -67,27 +67,15 @@
   <%= csrf_meta_tags %>
   <meta name="robots" content="noindex, nofollow" />
 	<link href='http://fonts.googleapis.com/css?family=Arbutus+Slab' rel='stylesheet' type='text/css'>
-	<script type="text/javascript">
-
-	  var _gaq = _gaq || [];
-	  _gaq.push(['_setAccount', 'UA-35805006-1']);
-	  _gaq.push(['_trackPageview']);
-
-	  (function() {
-	    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-	    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	  })();
-
-	</script>
 	<link href='http://fonts.googleapis.com/css?family=Lato:400' rel='stylesheet' type='text/css'>
+	<%= render 'layouts/analytics' %>
 </head>
 <body>
 <div id="header">
 	<div id="headerContent" class="clearfix">
   <%= link_to "bestmessageboardever.", root_url, id: 'logo' %>
 	<% if current_user %>
-	<p>Logged in as <strong><%= current_user.username %></strong><em> | </em>
+	<p>Logged in as <strong><span id="logged_in_name"><%= current_user.username %></span></strong><em> | </em>
 	<%= link_to "Log Out", logout_path %><em> | </em>
 	<% mentions = mention_count %>
 	<% unless mentions == 0 %>
@@ -119,7 +107,7 @@
 <footer>
 	<div id="footer_content">
 		<%= link_to "bestmessageboardever.", root_url, id: 'logo', :class => 'footer_logo' %>
-		<p>&copy; 2012 Bryan Mytko | Whatever Else Goes Here | Hi.</p>
+		<p>&copy; 2013 Bryan Mytko | Whatever Else Goes Here | Hi.</p>
 	</div>
 </footer>
 </body>
